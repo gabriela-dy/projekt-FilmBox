@@ -4,7 +4,7 @@ const filmy = [
 		nazev: 'Pelíšky',
 		plakat: {
 			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/165/059/165059101_56d52a.jpg',
-			sirka: 663,
+			sirka: 420,
 			vyska: 909,
 		},
 		ochutnavka: 'České drama z období 1968.',

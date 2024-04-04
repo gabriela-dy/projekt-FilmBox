@@ -4,7 +4,7 @@ const filmy = [
 		nazev: 'Pelíšky',
 		plakat: {
 			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/165/059/165059101_56d52a.jpg',
-			sirka: 663,
+			sirka: 420,
 			vyska: 909,
 		},
 		ochutnavka: 'České drama z období 1968.',
@@ -43,7 +43,7 @@ const filmy = [
 		nazev: 'RRRrrrr!!!',
 		plakat: {
 			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/162/393/162393560_2aca32.jpg',
-			sirka: 663,
+			sirka: 500,
 			vyska: 919,
 		},
 		ochutnavka: 'Francouzská komedie.',
@@ -82,7 +82,7 @@ const filmy = [
 		nazev: 'Petrolejové lampy',
 		plakat: {
 			url: 'https://image.pmgstatic.com/cache/resized/w663/files/images/film/posters/163/486/163486952_22889f.jpg',
-			sirka: 663,
+			sirka: 500,
 			vyska: 937,
 		},
 		ochutnavka: 'Sugestivní filmové drama podle románu Jaroslava Havlíčka.',
@@ -119,13 +119,26 @@ const filmy = [
 	},
 ]
 
-//const elDetail = document.querySelector("main")
+const filmId = window.location.hash.slice(1); 
+const elNazevFilmu = document.querySelector(".card-title");
+const elPopisFilmu = document.querySelector(".card-text");
+const elPlakatFilmu = document.querySelector(".col-md-5");
+console.log(filmId)
 
-filmy.forEach((film) => {
-	filmy.innerHTML += `
-			<h5>${film.nazev}</h5>
-			<p>${film.ochutnavka}</p>
-			<p>${film.popis}</p>
-			<a href="film.html#${filmy.id}">Přehrát</a>
-			`;
-});//
+const vybranyFilm = filmy.find(film => film.id === filmId);
+    elNazevFilmu.innerHTML = "";
+    elPopisFilmu.innerHTML = "";
+    elPlakatFilmu.innerHTML = ""; 
+
+    filmy.forEach(film => {
+        if (film.id === filmId) {
+            elNazevFilmu.innerHTML += 
+						`<h5>${film.nazev}</h5>`;
+            elPopisFilmu.innerHTML += 
+						`<p>${film.popis}</p>`;
+            elPlakatFilmu.innerHTML += 
+						`<img src="${film.plakat.url}" width="${film.plakat.sirka}" height="${film.plakat.vyska}">`;
+        }
+    });
+
+
