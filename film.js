@@ -119,6 +119,7 @@ const filmy = [
 	},
 ]
 
+//Ukol 5
 const filmId = window.location.hash.slice(1); 
 const elNazevFilmu = document.querySelector(".card-title");
 const elPopisFilmu = document.querySelector(".card-text");
@@ -142,3 +143,34 @@ const vybranyFilm = filmy.find(film => film.id === filmId);
     });
 
 
+//Ukol 8
+const elFormular = document.querySelector("#note-form");
+const elPoznamka = document.querySelector('#message-input');
+const	elCheckbox = document.querySelector('#terms-checkbox'); 
+const elPopisCheckbox = document.querySelector('.form-check-label');
+
+elFormular.addEventListener('submit', function(event) {
+	event.preventDefault();
+	
+	if (elPoznamka.value.trim() === '' && !elCheckbox.checked) {
+		elPoznamka.classList.add('is-invalid');
+		elCheckbox.classList.add('is-invalid-checkbox');
+		elPopisCheckbox.classList.add('is-invalid-text');
+	} 
+	else if (!elCheckbox.checked && elPoznamka.value.trim() !== '') {
+		elCheckbox.classList.add('is-invalid-checkbox');
+		elPopisCheckbox.classList.add('is-invalid-text');
+		elPoznamka.classList.remove('is-invalid');
+	}
+	else {
+		elPoznamka.classList.remove('is-invalid'); 
+		elCheckbox.classList.remove('is-invalid-checkbox')
+	}
+
+	if (elPoznamka.value.trim() !== '' && elCheckbox.checked) {
+		const novaPoznamka = document.createElement('p');
+		novaPoznamka.classList.add('card-text');
+		novaPoznamka.textContent = elPoznamka.value.trim();
+		elFormular.replaceWith(novaPoznamka);
+	}
+});

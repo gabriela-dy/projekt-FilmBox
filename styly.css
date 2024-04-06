@@ -115,3 +115,15 @@ video[controls] + .player-controls {
 .form-control.is-invalid {
 	margin-bottom: 0;
 }
+
+.is-invalid {
+	border-color: red;
+}
+
+.is-invalid-checkbox {
+	color: red;
+}
+
+.is-invalid-text {
+	color: red;
+}
