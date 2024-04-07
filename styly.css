@@ -121,7 +121,7 @@ video[controls] + .player-controls {
 }
 
 .is-invalid-checkbox {
-	color: red;
+	border-color: red;
 }
 
 .is-invalid-text {

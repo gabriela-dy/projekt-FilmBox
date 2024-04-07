@@ -162,6 +162,11 @@ elFormular.addEventListener('submit', function(event) {
 		elPopisCheckbox.classList.add('is-invalid-text');
 		elPoznamka.classList.remove('is-invalid');
 	}
+	else if	(elPoznamka.value.trim() === '' && elCheckbox.checked) {
+			elPoznamka.classList.add('is-invalid');
+			elCheckbox.classList.remove('is-invalid-checkbox');
+			elPopisCheckbox.classList.remove('is-invalid-text');
+	}
 	else {
 		elPoznamka.classList.remove('is-invalid'); 
 		elCheckbox.classList.remove('is-invalid-checkbox')
